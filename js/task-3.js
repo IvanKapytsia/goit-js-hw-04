@@ -1,40 +1,23 @@
-function filterArray(numbers, value) {
-  const newArr = [];
+const profile = {
+  username: "Jacob",
+  playTime: 300,
+  changeUsername(newName) {
+    this.username = newName;
+  },
+  updatePlayTime(hours) {
+    this.playTime += hours;
+  },
+  getInfo() {
+    return `${this.username} has ${this.playTime} active hours`
+  },
+};
 
-  for (let i = 0; i < numbers.length; i++) {
-    const element = numbers[i];
-    if (element > value) {
-      newArr.push(element)
-    }
-  }
-  return newArr;
-}
+//!-=========================================================
 
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
 
+profile.changeUsername("Marco");
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
 
-
-
-
-
-
-
-//Функція повинна повертати новий масив лише тих чисел із масиву numbers, які більші за значення value.
-
-// Усередині функції:
-
-// Створи порожній масив, у який будеш додавати підходящі числа.
-// Використай цикл для ітерації кожного елемента масиву numbers.
-// Використовуй умовний оператор if усередині циклу для перевірки кожного елемента и додавання до свого масиву.
-// Поверни свій новий масив з підходящими числами як результат.
-
-
-// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
-
-
-//!==============================================================================
-
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
